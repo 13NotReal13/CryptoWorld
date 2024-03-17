@@ -8,6 +8,8 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    
+    private let link = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=10")
 
     override func viewDidLoad() {
         super.viewDidLoad()
