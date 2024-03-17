@@ -25,10 +25,7 @@ final class MainViewController: UIViewController {
             
             do {
                 let coins = try JSONDecoder().decode([Coin].self, from: data)
-                
-                coins.forEach { coin in
-                    print("\(coin)\n")
-                }
+                print(coins.map { "\($0)" }.joined(separator: "\n\n"))
             } catch {
                 print(error)
             }
