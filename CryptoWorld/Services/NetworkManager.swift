@@ -11,7 +11,7 @@ enum Link {
     case coins
     
     var url: URL {
-        URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=10")!
+        URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=20")!
     }
 }
 
