@@ -8,6 +8,8 @@
 import UIKit
 
 final class MainViewController: UIViewController {
+    
+    private let networkManager = NetworkManager.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,20 +17,14 @@ final class MainViewController: UIViewController {
     }
 
     private func fetchCoins() {
-        URLSession.shared.dataTask(with: Link.coins.url) { data, _, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            do {
-                let coins = try JSONDecoder().decode([Coin].self, from: data)
-                print(coins.map { "\($0)" }.joined(separator: "\n\n"))
-            } catch {
+        networkManager.fetchCoins(from: Link.coins.url) { result in
+            switch result {
+            case .success(let coins):
+                print(coins)
+            case .failure(let error):
                 print(error)
             }
-            
-        }.resume()
+        }
     }
 }
 
