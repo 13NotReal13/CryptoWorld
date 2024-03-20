@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoinCell: UICollectionViewCell {
+final class CoinCell: UICollectionViewCell {
     
     @IBOutlet var nameCoin: UILabel!
     @IBOutlet var totalVolume: UILabel!
