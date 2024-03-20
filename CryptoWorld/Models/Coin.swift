@@ -11,9 +11,9 @@ struct Coin: Decodable {
     let name: String
     let symbol: String
     let image: URL
-    let current_price: Double
-    let high_24h: Double
-    let low_24h: Double
-    let price_change_percentage_24h: Double
-    let last_updated: String
+    let currentPrice: Double
+    let high24h: Double
+    let low24h: Double
+    let priceChangePercentage24h: Double
+    let lastUpdated: String
 }

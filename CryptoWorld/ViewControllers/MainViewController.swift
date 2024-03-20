@@ -8,8 +8,6 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    
-    private let link = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=10")!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +15,7 @@ final class MainViewController: UIViewController {
     }
 
     private func fetchCoins() {
-        URLSession.shared.dataTask(with: link) { data, _, error in
+        URLSession.shared.dataTask(with: Link.coins.url) { data, _, error in
             guard let data else {
                 print(error?.localizedDescription ?? "No error description")
                 return

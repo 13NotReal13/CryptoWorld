@@ -14,6 +14,7 @@
 		792DB0E62BA7331600209193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 792DB0E52BA7331600209193 /* Assets.xcassets */; };
 		792DB0E92BA7331600209193 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 792DB0E82BA7331600209193 /* Base */; };
 		792DB0FB2BA7356100209193 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792DB0FA2BA7356100209193 /* Coin.swift */; };
+		792DB1012BAB1CCF00209193 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792DB1002BAB1CCF00209193 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		792DB0E82BA7331600209193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		792DB0EA2BA7331600209193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792DB0FA2BA7356100209193 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		792DB1002BAB1CCF00209193 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		792DB0DB2BA7331400209193 /* CryptoWorld */ = {
 			isa = PBXGroup;
 			children = (
+				792DB0FF2BAB1CB500209193 /* Services */,
 				792DB0F72BA7352800209193 /* ViewControllers */,
 				792DB0F92BA7354400209193 /* Models */,
 				792DB0F82BA7353700209193 /* Storyboards */,
@@ -100,6 +103,14 @@
 				792DB0FA2BA7356100209193 /* Coin.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		792DB0FF2BAB1CB500209193 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				792DB1002BAB1CCF00209193 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 			files = (
 				792DB0E12BA7331400209193 /* MainViewController.swift in Sources */,
 				792DB0DD2BA7331400209193 /* AppDelegate.swift in Sources */,
+				792DB1012BAB1CCF00209193 /* NetworkManager.swift in Sources */,
 				792DB0FB2BA7356100209193 /* Coin.swift in Sources */,
 				792DB0DF2BA7331400209193 /* SceneDelegate.swift in Sources */,
 			);
