@@ -16,6 +16,7 @@
 		792DB0FB2BA7356100209193 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792DB0FA2BA7356100209193 /* Coin.swift */; };
 		792DB1012BAB1CCF00209193 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792DB1002BAB1CCF00209193 /* NetworkManager.swift */; };
 		792DB1042BAB2D3B00209193 /* CoinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792DB1032BAB2D3B00209193 /* CoinCell.swift */; };
+		792DB1072BB0329700209193 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 792DB1062BB0329700209193 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792DB1072BB0329700209193 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +142,9 @@
 			dependencies = (
 			);
 			name = CryptoWorld;
+			packageProductDependencies = (
+				792DB1062BB0329700209193 /* Alamofire */,
+			);
 			productName = CryptoWorld;
 			productReference = 792DB0D92BA7331400209193 /* CryptoWorld.app */;
 			productType = "com.apple.product-type.application";
@@ -168,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 792DB0D02BA7331400209193;
+			packageReferences = (
+				792DB1052BB0329700209193 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 792DB0DA2BA7331400209193 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -435,6 +443,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		792DB1052BB0329700209193 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		792DB1062BB0329700209193 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 792DB1052BB0329700209193 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 792DB0D12BA7331400209193 /* Project object */;
 }

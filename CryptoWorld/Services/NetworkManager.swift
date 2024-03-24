@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Link {
     case coins
@@ -15,35 +16,21 @@ enum Link {
     }
 }
 
-enum NetworkError: Error {
-    case noData
-    case decodingError
-}
-
-struct NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
-    func fetchCoins(from url: URL, completion: @escaping(Result<[Coin], NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let coins = try decoder.decode([Coin].self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(coins))
+    func fetchCoinsWithParse(from url: URL, completion: @escaping(Result<[Coin], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success(let coins):
+                    completion(.success(Coin.getCoins(from: coins)))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(.decodingError))
             }
-            
-        }.resume()
     }
 }

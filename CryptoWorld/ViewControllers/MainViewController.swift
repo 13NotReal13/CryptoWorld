@@ -34,6 +34,11 @@ final class MainViewController: UICollectionViewController {
         fetchCoins()
     }
     
+    // MARK: - IBActions
+    @IBAction func updateBarButtonAction(_ sender: UIBarButtonItem) {
+        fetchCoins()
+    }
+    
     // MARK: - Private Methods
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -45,6 +50,13 @@ final class MainViewController: UICollectionViewController {
         if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
             textField.textColor = .white
         }
+    }
+    
+    private func showAlert(withTitle title: String, andMessage message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okButton)
+        present(alert, animated: true)
     }
 }
 
@@ -106,15 +118,14 @@ extension MainViewController: UISearchResultsUpdating {
 // MARK: - Networking
 extension MainViewController {
     private func fetchCoins() {
-        networkManager.fetchCoins(from: Link.coins.url) { [unowned self] result in
+        networkManager.fetchCoinsWithParse(from: Link.coins.url) { [unowned self] result in
             switch result {
             case .success(let coins):
                 self.coins = coins
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                }
+                collectionView.reloadData()
             case .failure(let error):
                 print(error)
+                showAlert(withTitle: "Oops...", andMessage: error.localizedDescription)
             }
         }
     }
